@@ -43,7 +43,7 @@ function SearchAndDestroy(object)
 	if start then
 		local result = Parse(string.sub(object,start+9,ending-4))
 		if result then
-			return ending,(string.sub(object,1,start+8))..result..(string.sub(object,ending-3,string.len(object)))
+			return ending,(string.sub(object,1,start+8))..result.."]]>" --..(string.sub(object,ending-3,string.len(object)))
 		end
 	end
 end
@@ -85,6 +85,7 @@ while ending and result do
 	section = string.sub(section,ending+1,string.len(section))
 	ending, result = SearchAndDestroy(section)
 end
+output = output..section
 
 io.write(output)
 
