@@ -39,11 +39,15 @@ function Parse(section)
 end
 
 function SearchAndDestroy(object)
-	local start,ending = string.find(object,"<!%[CDATA%[.-%]%]>")
+	local start,ending = string.find(object,"<ProtectedString.-><!%[CDATA%[.-%]%]>")
 	if start then
-		local result = Parse(string.sub(object,start+9,ending-4))
+		local string_begin,string_end = string.find(string.sub(object,start,ending),"<ProtectedString.->")
+		string_begin = string_begin + start
+		string_end = string_end + start
+		
+		local result = Parse(string.sub(object,string_end+9,ending-3))
 		if result then
-			return ending,(string.sub(object,1,start+8))..result.."]]>" --..(string.sub(object,ending-3,string.len(object)))
+			return ending,(string.sub(object,1,string_end+8))..result.."]]>" --..(string.sub(object,ending-3,string.len(object)))
 		end
 	end
 end
