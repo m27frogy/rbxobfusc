@@ -1,5 +1,6 @@
 # rbxobfusc
 Obfuscates RBXML script contents into an extremely confusing format.
+It uses a variety of simple methods (junk methods, junk comments, scrambled reference names, scrambled strings, byte encoded version of strings, etc...)
 
 Thanks to mlnlover11 for XFuscator!
 
