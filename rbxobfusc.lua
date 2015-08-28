@@ -30,7 +30,7 @@
 require'XFuscator.init'
 
 function Parse(section)
-	local result, msg = XFuscator.XFuscate(section, 1, 1, false, false, false, false, true, false, false)
+	local result, msg = XFuscator.XFuscate(section, 1, 1, false, false, true, false, true, false, false)
 	if not result then
 		error(msg)
 	else

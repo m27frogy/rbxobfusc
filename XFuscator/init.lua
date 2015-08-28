@@ -99,7 +99,7 @@ local function obfuscate(code, level, mxLevel, useLoadstring, makeFluff, randomC
         -- Convert to char/table/loadstring thing
         a2 = XFuscator.Step2(a, GenerateFluff, useTD)
     else
-        a2 = a--"return loadstring('" .. dumpString(a) .. "')()"
+        a2 = "return loadstring('" .. dumpString(a) .. "')()"
     end
     
     if randomComments then
